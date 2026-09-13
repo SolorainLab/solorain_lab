@@ -1,0 +1,467 @@
+/* =====================================
+   RESET
+===================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+
+  background: #b8b8b8;
+
+  color: #111;
+
+  overflow-x: hidden;
+}
+
+
+
+/* =====================================
+   MAIN PAGE
+===================================== */
+
+#main-site {
+  width: 100%;
+}
+
+
+.main-screen {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #b8b8b8;
+}
+
+
+.screen-image {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+
+
+/* =====================================
+   FIRST SCREEN
+   LOOKBOOK 1 2 3 4 5 6
+===================================== */
+
+.lookbook-menu {
+  position: absolute;
+
+  z-index: 20;
+
+  left: 4.1%;
+
+  top: 84.5%;
+
+
+  display: flex;
+
+  gap: 7px;
+
+
+  padding: 7px 8px;
+
+
+  border:
+
+    1px solid
+
+    rgba(255,255,255,0.65);
+
+
+  background:
+
+    rgba(100,100,100,0.14);
+}
+
+
+
+.lookbook-menu button {
+  width: 35px;
+
+  height: 35px;
+
+
+  padding: 0;
+
+
+  border:
+
+    1px solid
+
+    rgba(255,255,255,0.9);
+
+
+  background: transparent;
+
+
+  color: white;
+
+
+  font-family:
+
+    Arial,
+
+    Helvetica,
+
+    sans-serif;
+
+
+  font-size: 12px;
+
+
+  cursor: pointer;
+
+
+  transition:
+
+    background 0.15s ease,
+
+    color 0.15s ease,
+
+    transform 0.15s ease;
+}
+
+
+
+.lookbook-menu button:hover {
+
+  background: white;
+
+  color: #111;
+
+  transform: translateY(-2px);
+}
+
+
+
+/* =====================================
+   SECOND SCREEN
+   VIEW LOOKBOOK → 6
+===================================== */
+
+.view-lookbook {
+  position: absolute;
+
+  z-index: 20;
+
+
+  left: 1.6%;
+
+  top: 54%;
+
+
+  padding: 0 0 4px 0;
+
+
+  border: 0;
+
+  border-bottom: 1px solid #111;
+
+
+  background: transparent;
+
+
+  color: #111;
+
+
+  font-family:
+
+    Arial,
+
+    Helvetica,
+
+    sans-serif;
+
+
+  font-size: 12px;
+
+
+  letter-spacing: 0.1em;
+
+
+  cursor: pointer;
+}
+
+
+
+.view-lookbook:hover {
+
+  opacity: 0.55;
+}
+
+
+
+/* =====================================
+   LOOKBOOK MODAL
+
+   버튼 누른 룩북 딱 하나만 표시
+===================================== */
+
+.lookbook-modal {
+  display: none;
+
+
+  position: fixed;
+
+  inset: 0;
+
+
+  z-index: 1000;
+
+
+  width: 100%;
+
+  height: 100vh;
+
+
+  overflow-y: auto;
+
+
+  background: #b8b8b8;
+}
+
+
+
+.lookbook-modal.open {
+
+  display: block;
+}
+
+
+
+.lookbook-image {
+
+  display: block;
+
+
+  width: 100%;
+
+  height: auto;
+
+
+  margin: 0;
+
+
+  user-select: none;
+
+
+  -webkit-user-drag: none;
+}
+
+
+
+/* 룩북이 열린 동안
+   뒤 메인페이지 스크롤 금지 */
+
+body.modal-open {
+
+  overflow: hidden;
+}
+
+
+
+/* =====================================
+   LOOKBOOK CLOSE
+===================================== */
+
+.lookbook-close {
+
+  position: fixed;
+
+
+  z-index: 1100;
+
+
+  top: 12px;
+
+  right: 16px;
+
+
+  width: 34px;
+
+  height: 34px;
+
+
+  border: 0;
+
+
+  border-radius: 50%;
+
+
+  background:
+
+    rgba(20,20,20,0.70);
+
+
+  color: white;
+
+
+  font-family:
+
+    Arial,
+
+    Helvetica,
+
+    sans-serif;
+
+
+  font-size: 23px;
+
+
+  line-height: 34px;
+
+
+  cursor: pointer;
+}
+
+
+
+.lookbook-close:hover {
+
+  background: #111;
+}
+
+
+
+/* =====================================
+   SMALL INSTAGRAM BUTTON
+===================================== */
+
+.instagram-mini {
+
+  position: fixed;
+
+
+  z-index: 2000;
+
+
+  right: 15px;
+
+  bottom: 15px;
+
+
+  width: 32px;
+
+  height: 32px;
+
+
+  display: grid;
+
+  place-items: center;
+
+
+  border-radius: 50%;
+
+
+  background:
+
+    rgba(20,20,20,0.82);
+
+
+  color: white;
+
+
+  text-decoration: none;
+
+
+  box-shadow:
+
+    0 3px 10px
+
+    rgba(0,0,0,0.15);
+}
+
+
+
+.instagram-mini:hover {
+
+  background: #111;
+}
+
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 760px) {
+
+
+  .lookbook-menu {
+
+    left: 4%;
+
+    top: 84%;
+
+
+    gap: 3px;
+
+
+    padding: 4px;
+  }
+
+
+  .lookbook-menu button {
+
+    width: 26px;
+
+    height: 26px;
+
+
+    font-size: 9px;
+  }
+
+
+
+  .view-lookbook {
+
+    top: 54%;
+
+
+    font-size: 8px;
+  }
+
+
+
+  .instagram-mini {
+
+    right: 10px;
+
+    bottom: 10px;
+
+
+    width: 30px;
+
+    height: 30px;
+  }
+
+
+
+  .lookbook-close {
+
+    top: 10px;
+
+    right: 10px;
+  }
+
+}

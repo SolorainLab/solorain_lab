@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Solorain Lab</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       MAIN
+       1번 → 2번까지만 스크롤
+  ========================== -->
+
+  <main id="main-site">
+
+
+    <!-- FIRST SCREEN -->
+
+    <section
+      id="home"
+      class="main-screen"
+    >
+
+      <img
+        class="screen-image"
+        src="images/screen01-home.png"
+        alt="Solorain Lab Home"
+      >
+
+
+      <!-- LOOKBOOK 1~6 -->
+
+      <div class="lookbook-menu">
+
+        <button onclick="openLookbook(1)">
+          1
+        </button>
+
+        <button onclick="openLookbook(2)">
+          2
+        </button>
+
+        <button onclick="openLookbook(3)">
+          3
+        </button>
+
+        <button onclick="openLookbook(4)">
+          4
+        </button>
+
+        <button onclick="openLookbook(5)">
+          5
+        </button>
+
+        <button onclick="openLookbook(6)">
+          6
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- SECOND SCREEN -->
+
+    <section
+      id="selected"
+      class="main-screen"
+    >
+
+      <img
+        class="screen-image"
+        src="images/screen02-selected-works.png"
+        alt="Selected Works"
+      >
+
+
+      <!-- 6번 룩북 -->
+
+      <button
+        class="view-lookbook"
+        onclick="openLookbook(6)"
+      >
+        VIEW LOOKBOOK →
+      </button>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       LOOKBOOK OVERLAY
+       선택한 한 장만 표시
+  ========================== -->
+
+  <div
+    id="lookbook-modal"
+    class="lookbook-modal"
+  >
+
+    <button
+      class="lookbook-close"
+      onclick="closeLookbook()"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+
+    <img
+      id="lookbook-image"
+      class="lookbook-image"
+      src=""
+      alt="Solorain Lab Lookbook"
+    >
+
+  </div>
+
+
+
+  <!-- =========================
+       SMALL INSTAGRAM BUTTON
+  ========================== -->
+
+  <a
+    class="instagram-mini"
+    href="https://www.instagram.com/solorain_lab/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Solorain Lab Instagram"
+  >
+
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+    >
+
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+      ></rect>
+
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+      ></circle>
+
+      <circle
+        cx="17.5"
+        cy="6.5"
+        r="1"
+        fill="currentColor"
+        stroke="none"
+      ></circle>
+
+    </svg>
+
+  </a>
+
+
+
+  <!-- =========================
+       LOOKBOOK SCRIPT
+  ========================== -->
+
+  <script>
+
+    const lookbooks = {
+
+      1: "images/lookbook01-artwork-umbrella-tee.png",
+
+      2: "images/lookbook02-multi-typo-long-sleeve.png",
+
+      3: "images/lookbook03-washed-blue-long-sleeve.png",
+
+      4: "images/lookbook04-artwork-black-hoodie.png",
+
+      5: "images/lookbook05-graphic-charcoal-tee.png",
+
+      6: "images/lookbook06-green-floral-bloom-tee.png"
+
+    };
+
+
+    function openLookbook(number) {
+
+      const modal =
+        document.getElementById("lookbook-modal");
+
+      const image =
+        document.getElementById("lookbook-image");
+
+
+      image.src = lookbooks[number];
+
+
+      modal.classList.add("open");
+
+
+      document.body.classList.add("modal-open");
+
+
+      modal.scrollTop = 0;
+
+    }
+
+
+
+    function closeLookbook() {
+
+      const modal =
+        document.getElementById("lookbook-modal");
+
+
+      modal.classList.remove("open");
+
+
+      document.body.classList.remove("modal-open");
+
+    }
+
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeLookbook();
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>
